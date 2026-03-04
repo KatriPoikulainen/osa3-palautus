@@ -1,9 +1,28 @@
+### kaikki henkilöt
 GET http://localhost:3001/api/persons
 
-###
+### lisää uusi henkilö (toimiva)
+POST http://localhost:3001/api/persons
+Content-Type: application/json
 
-DELETE http://localhost:3001/api/persons/2
+{
+  "name": "Katri",
+  "number": "0501234567"
+}
 
-###
+### testaa puuttuva numero
+POST http://localhost:3001/api/persons
+Content-Type: application/json
 
-GET http://localhost:3001/api/persons
+{
+  "name": "Testi"
+}
+
+### testaa sama nimi
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Arto Hellas",
+  "number": "123"
+}
