@@ -1,28 +1,7 @@
-### kaikki henkilöt
-GET http://localhost:3001/api/persons
-
-### lisää uusi henkilö (toimiva)
 POST http://localhost:3001/api/persons
 Content-Type: application/json
 
 {
-  "name": "Katri",
-  "number": "0501234567"
-}
-
-### testaa puuttuva numero
-POST http://localhost:3001/api/persons
-Content-Type: application/json
-
-{
-  "name": "Testi"
-}
-
-### testaa sama nimi
-POST http://localhost:3001/api/persons
-Content-Type: application/json
-
-{
-  "name": "Arto Hellas",
-  "number": "123"
+  "name": "TestiMorgan",
+  "number": "0400000000"
 }
