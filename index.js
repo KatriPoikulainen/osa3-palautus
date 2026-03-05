@@ -92,7 +92,7 @@ app.post('/api/persons', (request, response) => {
   response.json(person)
 })
 
-app.get('*', (req, res) => {
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'))
 })
 
