@@ -14,11 +14,26 @@ app.use(express.static('dist'))
 morgan.token('body', (req) => (req.method === 'POST' ? JSON.stringify(req.body) : ''))
 app.use(morgan(':method :url :status :response-time ms :body'))
 
-
-
 app.get('/api/persons', (request, response) => {
   Person.find({}).then(persons => {
     response.json(persons)
+  })
+})
+
+app.post('/api/persons', (request, response) => {
+  const body = request.body
+  if (!body.name || !body.number) {
+    return response.status(400).json({
+      error:'name or number missing'
+    })
+  }
+  const person = new Person ({
+    name: body.name,
+    number: body.number,
+
+  })
+  person.save().then(savedPerson => {
+    response.json(savedPerson)
   })
 })
 
