@@ -37,6 +37,11 @@ app.post('/api/persons', (request, response) => {
   })
 })
 
+app.delete('/api/persons/:id', (request, response) => {
+  Person.findByIdAndDelete(request.params.id)
+  .then(() => {response.status(204).end()})
+})
+
 app.get('/info', (request, response) => {
   Person.find({}).then(persons => {
     const count = persons.length
