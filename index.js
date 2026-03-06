@@ -74,10 +74,10 @@ app.put('/api/persons/:id', (request, response, next) => {
 
 app.delete('/api/persons/:id', (request, response, next) => {
   Person.findByIdAndDelete(request.params.id)
-  .then(() => {response.status(204).end()
+    .then(() => {response.status(204).end()
 
-  })
-  .catch(error => next(error))
+    })
+    .catch(error => next(error))
 })
 
 app.get('/info', (request, response) => {
@@ -103,7 +103,7 @@ const errorHandler = (error, request, response, next) => {
     return response.status(400).json({ error: 'malformatted id' })
   }
 
-    if (error.name === 'ValidationError') {
+  if (error.name === 'ValidationError') {
     return response.status(400).json({ error: error.message })
   }
 
